@@ -1,5 +1,4 @@
 """
-2:43
 authorization: what you can do?
 authentication: who you are? how you prove it(credentials)?
 identification: the ability to identify uniquely a user of a system or an application that is running in the system.
@@ -19,6 +18,16 @@ authentication in Django(consists of...):
 
 user: an individual accessing a website through a web browser.
     In Django the user objects are the core of the authentication system.
+
+WEB SECURITY:
+- SQL Injection: someone can insert information in our application
+- Cross-site Scripting(XSS)
+- URL/HTTP manipulation attacks(Parameter Tampering)
+- Cross-site Request Forgery(CSRF)
+- Brute Force Attacks (also DDoS)
+- Insufficient Access Control
+- Missing SSL(HTTPS)/MITM
+- Phishing/Social Engineering
 """
 
 from pathlib import Path

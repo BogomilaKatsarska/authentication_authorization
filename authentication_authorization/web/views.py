@@ -7,7 +7,10 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User
 
+from authentication_authorization.web.decorators import allowed_groups
 
+
+@allowed_groups(groups=['Users'])
 def index(request):
     print(
         ## with 'alt' you can mark on more than one place (via using mouse)
