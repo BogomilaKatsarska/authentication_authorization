@@ -1,0 +1,7 @@
+<h1> Hello </h1>
+<form action="{% url 'sign in' %}" method="post">
+    {{ form.as_p}}
+    <button>Sign IN now!</button>
+    {% csrf_token %}
+</form>
+

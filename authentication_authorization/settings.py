@@ -1,4 +1,5 @@
 """
+0:57
 authorization: what you can do?
 authentication: who you are? how you prove it(credentials)?
 identification: the ability to identify uniquely a user of a system or an application that is running in the system.
@@ -20,17 +21,21 @@ user: an individual accessing a website through a web browser.
     In Django the user objects are the core of the authentication system.
 
 WEB SECURITY:
-- SQL Injection: someone can insert information in our application
-- Cross-site Scripting(XSS)
-- URL/HTTP manipulation attacks(Parameter Tampering)
-- Cross-site Request Forgery(CSRF)
-- Brute Force Attacks (also DDoS)
+- SQL Injection: someone can insert information in our application. In order to protect ourselves we use ORM
+- Cross-site Scripting(XSS): similar to above, asking people to click bad things on our site through JS injection
+- URL/HTTP manipulation attacks(Parameter Tampering): change params in the URL. Only problem if we do not validate access
+- Cross-site Request Forgery(CSRF): we click on something without wanting to click on it
+- Brute Force Attacks (also DDoS): too many requests to our site and the site stops working => unhappy customers
 - Insufficient Access Control
 - Missing SSL(HTTPS)/MITM
-- Phishing/Social Engineering
+- Phishing/Social Engineering: someone else sending email from our side with 'click here' to change pass
+
+pip install bleach - additional package to sanitize our HTML
 """
 
 from pathlib import Path
+
+from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -49,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'authentication_authorization.web',
+    'authentication_authorization.auth_app',
 ]
 
 MIDDLEWARE = [
@@ -138,4 +144,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #WRITE IT ONLY HERE, IN SETTINGS.PY
-LOGIN_URL = '/login2'
+LOGIN_URL = reverse_lazy('sign in')
