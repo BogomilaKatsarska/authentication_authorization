@@ -7,6 +7,9 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User
 
+from authentication_authorization.web.models import AppUser
+
+
 # from authentication_authorization.web.decorators import allowed_groups
 
 
@@ -75,3 +78,8 @@ class ProfileView(LoginRequiredMixin, views.View):
 class UsersListView(LoginRequiredMixin, views.ListView):
     model = User
     template_name = 'web/index.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['has_email']= AppUser.has_email(self.request.user)
+        return context

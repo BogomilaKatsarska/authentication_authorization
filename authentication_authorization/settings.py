@@ -1,5 +1,6 @@
 """
-0:57
+2:09:42
+Django WP ADMIN ____ CHECK  !
 authorization: what you can do?
 authentication: who you are? how you prove it(credentials)?
 identification: the ability to identify uniquely a user of a system or an application that is running in the system.
@@ -31,6 +32,7 @@ WEB SECURITY:
 - Phishing/Social Engineering: someone else sending email from our side with 'click here' to change pass
 
 pip install bleach - additional package to sanitize our HTML
+check config for google login
 """
 
 from pathlib import Path
@@ -145,3 +147,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #WRITE IT ONLY HERE, IN SETTINGS.PY
 LOGIN_URL = reverse_lazy('sign in')
+LOGOUT_REDIRECT_URL = reverse_lazy('index')
+AUTH_USER_MODEL = 'auth_app.AppUser'
